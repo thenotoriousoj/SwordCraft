@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b2a5b86leqr2y"]
+
+[ext_resource type="Script" uid="uid://ce6ptfcdgx0k6" path="res://chunkLoader.gd" id="1_kdh3y"]
+
+[node name="Chunk" type="Node3D" unique_id=2095374351]
+script = ExtResource("1_kdh3y")
+
+[node name="HexHolder" type="Node" parent="." unique_id=1007039395]

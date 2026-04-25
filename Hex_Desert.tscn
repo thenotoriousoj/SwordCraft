@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b1vm6f4qdy277"]
+
+[ext_resource type="Texture2D" uid="uid://c2kxk5xpsr14q" path="res://CnC/Assets/Textures/DesertTile.jpg" id="1_bqo2d"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_27vaf"]
+lightmap_size_hint = Vector2i(68, 31)
+uv2_padding = 5.69
+top_radius = 2.0
+bottom_radius = 2.0
+height = 0.001
+radial_segments = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wextx"]
+albedo_texture = ExtResource("1_bqo2d")
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bqo2d"]
+height = 0.001
+radius = 1.0004883
+
+[node name="Desert_Hex" type="Node3D" unique_id=349867667]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=673314780]
+transform = Transform3D(0.4330127, 0, 0.25, 0, 1, 0, -0.25, 0, 0.4330127, 0, 0, 0)
+mesh = SubResource("CylinderMesh_27vaf")
+surface_material_override/0 = SubResource("StandardMaterial3D_wextx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=409565378]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=554207844]
+shape = SubResource("CylinderShape3D_bqo2d")

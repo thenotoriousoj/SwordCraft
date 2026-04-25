@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dx2e8py0hgodu"]
+
+[ext_resource type="Script" uid="uid://by2ihs3548iq6" path="res://character_body_3d.gd" id="1_xhfnw"]
+[ext_resource type="Script" uid="uid://dl77wirdoi6ht" path="res://camera_3d.gd" id="2_kpjcp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0rwas"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xhfnw"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1502067155]
+script = ExtResource("1_xhfnw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1081662908]
+shape = SubResource("CapsuleShape3D_0rwas")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1787875408]
+mesh = SubResource("CapsuleMesh_xhfnw")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1723325997]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0.9758835, 4)
+current = true
+script = ExtResource("2_kpjcp")
+mouse_sensitivity = 0.003
+zoom_speed = 0.3
+zoom_smoothness = 5.0
+min_distance = 6.0
+max_distance = 12.0
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1396287261]

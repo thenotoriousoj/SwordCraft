@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ceyql4obqhvw"]
+
+[ext_resource type="Script" uid="uid://clnbrvmwyksy3" path="res://Scenes/WorldGen/Hex/hex_tile.gd" id="1_pk2wf"]
+
+[node name="Node3D" type="Node3D" unique_id=349867667]
+script = ExtResource("1_pk2wf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=946162374]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=791286562]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1169068331]

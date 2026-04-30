@@ -5,9 +5,10 @@ extends Node3D
 var tileSize: float
 var height_map: Array = []
 var wall_map: Array = []
-var top_texture: Texture2D
-var wall_texture: Texture2D
-var wall_texture_scale = .3
+var top_texture: Material
+var wall_texture: Material
+var wall_texture_scale = 1
+var initialCollision = false
 func get_collision_shape(mesh):
 	return mesh.create_trimesh_shape()
 func _ready():
@@ -94,20 +95,15 @@ func _ready():
 				st_walls.set_uv(uv_bottomB)
 				st_walls.add_vertex(bottomB)
 	var mesh = ArrayMesh.new()
-	
 	st.generate_normals()
-	var top_material = StandardMaterial3D.new()
-	top_material.albedo_texture = top_texture
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, st.commit_to_arrays())
-	mesh.surface_set_material(mesh.get_surface_count() - 1, top_material)
-	
+	mesh.surface_set_material(mesh.get_surface_count() - 1, top_texture)
 	st_walls.generate_normals()
-	var side_material = StandardMaterial3D.new()
-	side_material.albedo_texture = wall_texture
-	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, st_walls.commit_to_arrays())
-	mesh.surface_set_material(mesh.get_surface_count() - 1, side_material)
-	
-	
-	var collision = get_collision_shape(mesh)
+	var arrays = st_walls.commit_to_arrays()
+	var vertices = arrays[Mesh.ARRAY_VERTEX]
+	if vertices != null and vertices.size() > 0:
+		mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, st_walls.commit_to_arrays())
+		mesh.surface_set_material(mesh.get_surface_count() - 1, wall_texture)
 	mesh_instance.mesh = mesh
+	var collision = get_collision_shape(mesh)
 	collisionShape.shape = collision

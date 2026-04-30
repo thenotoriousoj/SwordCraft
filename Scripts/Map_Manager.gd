@@ -3,11 +3,11 @@ extends Node
 class_name Tile_Generator
 var rng
 var textures = {
-	"grass": preload("res://Assets/Textures/Grass.jpg"),
-	"mountain": preload("res://Assets/Textures/Mountain.jpg"),
-	"desert": preload("res://Assets/Textures/Desert.jpg"),
-	"forest": preload("res://Assets/Textures/Forest.jpg"),
-	"dirt": preload("res://Assets/Textures/Dirt.jpg")
+	"grass": preload("res://Assets/Textures/Grass2/Grass007_1K-JPG.tres"),
+	"mountain": preload("res://Assets/Textures/Rock2/Rock050_1K-JPG.tres"),
+	"desert": preload("res://Assets/Textures/Sand/Ground097_1K-JPG.tres"),
+	"forest": preload("res://Assets/Textures/Grass2/Grass007_1K-JPG.tres"),
+	"dirt": preload("res://Assets/Textures/Dirt2/Ground082L_1K-JPG.tres")
 }
 # Elevation varies from 0 to 100
 var biomes = {

@@ -17,6 +17,9 @@ config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
 window/vsync/vsync_mode=0
 
 [editor]
@@ -88,3 +91,5 @@ run={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+gl_compatibility/nvidia_disable_threaded_optimization=false
+renderer/rendering_method="mobile"

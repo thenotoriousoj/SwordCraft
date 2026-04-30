@@ -10,10 +10,10 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	time += delta
-	var t = (time / day_length) * TAU
-	sun.rotation.x = t
-	var intensity = max(cos(t), 0.0)
-	sun.light_energy = lerp(0.1, 1.5, intensity)
+func _process(_delta: float) -> void:
+	#time += delta
+	#var t = (time / day_length) * TAU
+	#sun.rotation.x = t
+	#var intensity = max(cos(t), 0.0)
+	#sun.light_energy = lerp(0.1, 1.5, intensity)
 	pass

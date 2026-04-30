@@ -2,11 +2,11 @@ extends Node
 
 class_name ChunkManager
 signal chunk_changed(new_chunk: Vector2i)
-signal player_ready(position: Vector3, player)
 
 var worldSeed
 var player
 var render_distance
+var physics_distance
 var tile_size: Dictionary
 var chunk_size: Dictionary
 var activeChunks = {}
@@ -24,10 +24,11 @@ var tile_generator
 
 var completed_chunks: Array = []
 
-func _init(inputSeed : int, playerCharacter, renderDistance : int, chunk_Size : int, tileSize : float, worldGrid):
+func _init(inputSeed : int, playerCharacter, renderDistance : int, physic: int,chunk_Size : int, tileSize : float, worldGrid):
 	worldSeed = inputSeed
 	player = playerCharacter
 	render_distance = renderDistance
+	physics_distance = physic
 	tile_size = {
 		'value': tileSize,
 		'w': tileSize * 1.5,
@@ -149,7 +150,6 @@ func execute_task(task):
 			if chunk and is_instance_valid(chunk):
 				chunk.queue_free()
 			activeChunks.erase(key)
-			
 func process_completed_chunks():
 	while completed_chunks.size() > 0:
 		var data = completed_chunks.pop_front()
